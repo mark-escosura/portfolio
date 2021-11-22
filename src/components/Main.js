@@ -141,7 +141,7 @@ const Main = () => {
     <MainContainer>
       <DarkDiv click={click} />
       <Container>
-        <LogoComponent />
+        <LogoComponent theme={click ? "dark" : "light"} />
         <PowerButton />
         <SocialIcons theme={click ? "dark" : "light"} />
         <Center click={click}>
