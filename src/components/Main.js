@@ -60,7 +60,7 @@ const BLOG = styled(NavLink)`
 `;
 
 const WORK = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
   left: 3rem;
@@ -70,7 +70,7 @@ const WORK = styled(NavLink)`
 `;
 
 const ABOUT = styled(NavLink)`
-  color: ${(props) => props.click ? props.theme.body : props.theme.text };
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
 `;
@@ -119,12 +119,12 @@ const Center = styled.button`
 
 const DarkDiv = styled.div`
   position: absolute;
-  background-color: ${props => props.theme.text};
+  background-color: ${(props) => props.theme.text};
   top: 0;
   bottom: 0;
   right: 50%;
-  width: ${props => props.click ? '50%' : '0%'};
-  height: ${props => props.click ? '100%' : '0%'};
+  width: ${(props) => (props.click ? "50%" : "0%")};
+  height: ${(props) => (props.click ? "100%" : "0%")};
   z-index: 1;
 
   transition: height 0.5s ease, width 1s ease 0.5s;
@@ -143,7 +143,7 @@ const Main = () => {
       <Container>
         <LogoComponent />
         <PowerButton />
-        <SocialIcons />
+        <SocialIcons theme={click ? "dark" : "light"} />
         <Center click={click}>
           <YinYang
             onClick={handleClick}
