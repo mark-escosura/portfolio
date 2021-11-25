@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Me from "../assets/images/avatar-full-body.png";
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -67,16 +68,26 @@ const Text = styled.div`
 
 const Intro = () => {
   return (
-    <Box>
+    <Box
+    initial={{height: 0}}
+    animate={{height: '55vh'}}
+    transition={{ type: 'spring', duration: 2, delay: 1 }}
+    >
       <SubBox>
         <Text>
           <h1>Hi,</h1>
-          <h3> I'm MarkInTech.</h3>
+          <h3> I'm MarkInTech</h3>
           <h6> I design and Code simple yet beautiful websites.</h6>
         </Text>
       </SubBox>
       <SubBox>
+        <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{ duration: 2, delay: 1 }}
+        >
         <img className="pic" src={Me} alt="Profile Pic" />
+        </motion.div>
       </SubBox>
     </Box>
   );
