@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { NavLink } from "react-router-dom";
 // components
+import Intro from "./Intro";
 import LogoComponent from "../subComponents/LogoComponent";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
@@ -179,6 +180,7 @@ const Main = () => {
           </SKILLS>
         </BottomBar>
       </Container>
+      { click ? <Intro click={click}/> : null }
     </MainContainer>
   );
 };
