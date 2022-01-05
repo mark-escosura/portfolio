@@ -6,8 +6,7 @@ import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
-
-import { Work } from 
+ 
 // import caspar from "../assets/images/Caspar.png"
 
 const Box = styled.div`

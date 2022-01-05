@@ -75,16 +75,16 @@ const Intro = () => {
     >
       <SubBox>
         <Text>
-          <h1>Hi,</h1>
+          <h1> Hi,</h1>
           <h3> I'm MarkInTech</h3>
-          <h6> I design and Code simple yet beautiful websites.</h6>
+          <h6> FrontEnd Dev in the making.</h6>
         </Text>
       </SubBox>
       <SubBox>
         <motion.div
         initial={{opacity: 0}}
         animate={{opacity: 1}}
-        transition={{ duration: 2, delay: 1 }}
+        transition={{ duration: 2, delay: 1.5 }}
         >
         <img className="pic" src={Me} alt="Profile Pic" />
         </motion.div>

@@ -1,11 +1,93 @@
-import React from 'react'
+import React from "react";
+import styled, { keyframes, ThemeProvider } from "styled-components";
+import { DarkTheme } from "./Themes";
+
+import LogoComponent from "../subComponents/LogoComponent";
+import SocialIcons from "../subComponents/SocialIcons";
+import PowerButton from "../subComponents/PowerButton";
+import ParticleComponent from "../subComponents/ParticleComponent";
+
+import caspar from "../assets/images/Caspar.png"
+
+const Box = styled.div`
+  background-color: ${(props) => props.theme.body};
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+`;
+
+const float = keyframes`
+0% { transform: translateY(-10px)}
+50% { transform: translateY(-20px) translateX(20px)}
+100% { transform: translateY(-10px)}
+`;
+
+const Caspar = styled.div`
+  position: absolute;
+  top: 25%;
+  right : -12%;
+  width: 60vw;
+  animation: ${float} 5s ease infinite;
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+
+
+const Main = styled.div`
+    border: 2px solid ${props => props.theme.text};
+    color: ${props => props.theme.text};
+    padding: 2rem;
+    width: 50vw;
+    height: 60vh;
+    z-index: 3;
+    line-height: 1.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(0.6rem + 1vw);
+    backdrop-filter: blur(4px);
+
+    position: absolute;
+    left: calc(5rem + 5vw);
+    top: 10rem;
+
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: italic;
+`
 
 const AboutPage = () => {
-    return (
-        <div>
-            About Component/Page
-        </div>
-    )
-}
+  return (
+    <ThemeProvider theme={DarkTheme}>
+      <Box>
+        <LogoComponent theme="dark" />
+        <SocialIcons theme="dark" />
+        <PowerButton />
+        <ParticleComponent theme="dark" />
 
-export default AboutPage
+        <Caspar>
+            <img src={caspar} alt="caspar" />
+        </Caspar>
+
+        <Main>
+          I'm a front-end developer located in California. I love to create
+          simple yet beautiful websites with great user experience.
+          <br />
+          <br />
+          I'm interested in the whole front-end with a little bit of back-end. I
+          love trying new things and building great projects.
+          <br />
+          <br />I believe everything is art when you put your consciousness in
+          it. You can connect with me via email or social media.
+        </Main>
+      </Box>
+    </ThemeProvider>
+  );
+};
+
+export default AboutPage;
