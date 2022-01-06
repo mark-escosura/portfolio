@@ -1,23 +1,23 @@
 import React, { useRef, useEffect } from "react";
-import styled, { keyframes, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
+import { Work } from "../data/WorkData.js";
+import { YinYang } from "./AllSvgs";
 
+import BigTitle from "../subComponents/BigTitle";
 import Card from "../subComponents/Card";
 import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 
-import { Work } from "../data/WorkData.js";
-import { YinYang } from "./AllSvgs";
-
-// import caspar from "../assets/images/Caspar.png"
-
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
-  height: 400vh;
+
+  height: 300vh;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 `;
 
@@ -31,15 +31,6 @@ const Main = styled.ul`
   color: ${(props) => props.theme.text};
 `;
 
-const rotate = keyframes`
-from {
-  transform: rotate(0);
-}
-to {
-  transform: rotate(360deg);
-}
-`;
-
 const Rotate = styled.span`
 display: block;
 position: fixed;
@@ -48,18 +39,19 @@ bottom: 1rem;
 width: 80px;
 height: 80px;
 z-index: 1;
-
-animation: ${rotate} infinite 1.5s linear;
 `
 
 const WorkPage = () => { 
   const ref = useRef(null)
+  const yinyang = useRef(null)
 
   useEffect(() => {
  let element = ref.current;
 
  const rotate = () => {
    element.style.transform = `translateX(${-window.pageYOffset}px)`
+
+   yinyang.current.style.transform = `rotate(` + -window.pageYOffset + `deg)`
  }
 
  window.addEventListener('scroll', rotate)
@@ -82,9 +74,10 @@ const WorkPage = () => {
           })
           }
         </Main>
-        <Rotate>
+        <Rotate ref={yinyang}>
           <YinYang width={80} height={80} fill={DarkTheme.text}/>
         </Rotate>
+        <BigTitle text="WORK" top="10%" right="20%" />
       </Box>
     </ThemeProvider>
   );
