@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled, { keyframes, ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
 
 import Card from "../subComponents/Card";
@@ -9,6 +9,7 @@ import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 
 import { Work } from "../data/WorkData.js";
+import { YinYang } from "./AllSvgs";
 
 // import caspar from "../assets/images/Caspar.png"
 
@@ -29,6 +30,27 @@ const Main = styled.ul`
   display: flex;
   color: ${(props) => props.theme.text};
 `;
+
+const rotate = keyframes`
+from {
+  transform: rotate(0);
+}
+to {
+  transform: rotate(360deg);
+}
+`;
+
+const Rotate = styled.span`
+display: block;
+position: fixed;
+right: 1rem;
+bottom: 1rem;
+width: 80px;
+height: 80px;
+z-index: 1;
+
+animation: ${rotate} infinite 1.5s linear;
+`
 
 const WorkPage = () => { 
   const ref = useRef(null)
@@ -60,6 +82,9 @@ const WorkPage = () => {
           })
           }
         </Main>
+        <Rotate>
+          <YinYang width={80} height={80} fill={DarkTheme.text}/>
+        </Rotate>
       </Box>
     </ThemeProvider>
   );
