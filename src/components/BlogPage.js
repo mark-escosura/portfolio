@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import img from "../assets/images/blog-background-image.png";
+
+// assets
+import img from "../assets/images/blog-background-img.png";
 
 // components
-import LogoComponent from "../subComponents/LogoComponent";
-import SocialIcons from "../subComponents/SocialIcons";
-import PowerButton from "../subComponents/PowerButton";
+import BigTitle from "../subComponents/BigTitle";
 import BlogComponent from "../components/BlogComponent";
+import LogoComponent from "../subComponents/LogoComponent";
+import PowerButton from "../subComponents/PowerButton";
+import SocialIcons from "../subComponents/SocialIcons";
 
 // data
 import { Blogs } from "../data/BlogData";
@@ -18,7 +21,7 @@ const MainContainer = styled.div`
   background-attachment: fixed;
   background-position: center;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
 `;
 
 const Container = styled.div`
@@ -50,15 +53,12 @@ const BlogPage = () => {
         <SocialIcons />
         <Center>
           <Grid>
-            {
-                Blogs.map(blog => {
-                    return (
-                    <BlogComponent key={blog.id} blog={blog} />
-                    )
-                })
-            }
+            {Blogs.map((blog) => {
+              return <BlogComponent key={blog.id} blog={blog} />;
+            })}
           </Grid>
         </Center>
+        <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
   );

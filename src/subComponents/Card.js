@@ -96,7 +96,7 @@ const Card = (props) => {
       key={id}
       initial={{ height: 0 }}
       animate={{ height: "40vh" }}
-      transition={{ type: "tween", duration: 1 }}
+      transition={{ type: "tween", duration: 0.5 }}
       whileHover={{ scale: 1.1 }}
     >
       {/* Title */}
@@ -104,7 +104,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
+          transition={{ duration: 1, delay: 1.5 }}
         >
           {name}
         </motion.div>
@@ -114,7 +114,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
+          transition={{ duration: 1, delay: 1.5 }}
         >
           {description}
         </motion.div>
@@ -124,7 +124,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
+          transition={{ duration: 1, delay: 1.5 }}
         >
           {tags.map((t, id) => {
             return <Tag key={id}>#{t}</Tag>;
@@ -135,7 +135,7 @@ const Card = (props) => {
       <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
+          transition={{ duration: 1, delay: 1.5 }}
         >
         <Link to={{pathname: `${demo}`}} target="_blank">
           Visit

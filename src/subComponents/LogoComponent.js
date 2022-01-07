@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { LightTheme } from "../components/Themes";
+import { motion } from "framer-motion";
 
-const Logo = styled.h1`
+const Logo = styled(motion.h1)`
   display: inline-block;
   color: ${(props) => props.color === 'light' ? LightTheme.text : LightTheme.body };
   font-family: "Pacifico", cursive;
@@ -15,7 +16,7 @@ const Logo = styled.h1`
 
 const LogoComponent = (props) => {
   return (
-  <Logo color={props.theme}>
+  <Logo color={props.theme} whileHover={{scale: 1.2}}>
     MIT
     </Logo>
   );

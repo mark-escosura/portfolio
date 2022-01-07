@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 // components
 import { Github, Twitter, Facebook, YouTube } from "../components/AllSvgs";
 import { DarkTheme } from "../components/Themes";
+import { motion } from "framer-motion";
 
 const Icons = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const Line = styled.span`
 const SocialIcons = (props) => {
   return (
     <Icons>
-      <div>
+      <motion.div whileHover={{ scale: 1.3 }}>
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -43,8 +44,8 @@ const SocialIcons = (props) => {
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
           />
         </NavLink>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div whileHover={{ scale: 1.3 }}>
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -56,8 +57,8 @@ const SocialIcons = (props) => {
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
           />
         </NavLink>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div whileHover={{ scale: 1.3 }}>
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -69,8 +70,8 @@ const SocialIcons = (props) => {
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
           />
         </NavLink>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div whileHover={{ scale: 1.3 }}>
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -82,7 +83,7 @@ const SocialIcons = (props) => {
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
           />
         </NavLink>
-      </div>
+      </motion.div>
 
       <Line color={props.theme} />
     </Icons>

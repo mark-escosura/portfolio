@@ -8,6 +8,8 @@ import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 
 import caspar from "../assets/images/Caspar.png"
+import BigTitle from "../subComponents/BigTitle";
+import { motion } from "framer-motion";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -24,7 +26,7 @@ const float = keyframes`
 100% { transform: translateY(-10px)}
 `;
 
-const Caspar = styled.div`
+const Caspar = styled(motion.div)`
   position: absolute;
   top: 25%;
   right : -12%;
@@ -67,10 +69,13 @@ const AboutPage = () => {
       <Box>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
-        <PowerButton />
+        <PowerButton theme="dark"/>
         <ParticleComponent theme="dark" />
 
-        <Caspar>
+        <Caspar
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 5, delay: 1.5 }}>
             <img src={caspar} alt="caspar" />
         </Caspar>
 
@@ -85,6 +90,7 @@ const AboutPage = () => {
           <br />I believe everything is art when you put your consciousness in
           it. You can connect with me via email or social media.
         </Main>
+        <BigTitle text="ABOUT" top="2rem" right="2rem" />
       </Box>
     </ThemeProvider>
   );

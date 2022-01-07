@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 // components
 import { PowerBtn } from "../components/AllSvgs";
+import { DarkTheme } from "../components/Themes";
 
 const Power = styled.button`
   position: fixed;
@@ -36,11 +37,11 @@ const Power = styled.button`
   }
 `;
 
-const PowerButton = () => {
+const PowerButton = (props) => {
   return (
     <Power>
       <NavLink to="/">
-        <PowerBtn width={30} height={30} fill="currentColor" />
+        <PowerBtn width={30} height={30} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
       </NavLink>
     </Power>
   );

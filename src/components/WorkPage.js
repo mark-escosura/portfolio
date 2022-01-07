@@ -64,7 +64,7 @@ const WorkPage = () => {
       <Box>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
-        <PowerButton />
+        <PowerButton theme="dark" />
         <ParticleComponent theme="dark" />
 
         <Main ref={ref}>
@@ -77,7 +77,7 @@ const WorkPage = () => {
         <Rotate ref={yinyang}>
           <YinYang width={80} height={80} fill={DarkTheme.text}/>
         </Rotate>
-        <BigTitle text="WORK" top="10%" right="20%" />
+        <BigTitle text="WORK" top="70%" right="35%" />
       </Box>
     </ThemeProvider>
   );
