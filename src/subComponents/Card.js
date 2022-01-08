@@ -44,7 +44,7 @@ const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  ${Box}:hover &{
+  ${Box}:hover & {
     border-top: 2px solid ${(props) => props.theme.text};
   }
 `;
@@ -55,49 +55,59 @@ const Tag = styled.span`
 `;
 
 const Footer = styled.footer`
-display: flex;
-justify-content: center;
-`
+  display: flex;
+  justify-content: center;
+`;
 
 const Link = styled(NavLink)`
-background-color: ${props => props.theme.body};
-color: ${props => props.theme.text};
-text-decoration: none;
-padding: 0.5rem calc(2rem + 2vw);
-border-radius: 0 0 0 50px;
-font-size: calc(1em + 0.5vw);
-cursor: pointer;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  padding: 0.5rem calc(2rem + 2vw);
+  border-radius: 0 0 0 50px;
+  font-size: calc(1em + 0.5vw);
+  cursor: pointer;
 
-${Box}:hover &{
-  background-color: ${props => props.theme.text};
-  color: ${props => props.theme.body};
-  border-radius: 0 50px 0 0;
-
-}
-`
+  ${Box}:hover & {
+    background-color: ${(props) => props.theme.text};
+    color: ${(props) => props.theme.body};
+    border-radius: 0 50px 0 0;
+  }
+`;
 
 const Git = styled(NavLink)`
-color: inherit;
-text-decoration: none;
-margin-left: 2rem;
-cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  margin-left: 2rem;
+  cursor: pointer;
 
-${Box}:hover &{
-  &>*{
-    fill: ${props => props.theme.text};
+  ${Box}:hover & {
+    & > * {
+      fill: ${(props) => props.theme.text};
+    }
   }
-}
-`
+`;
+
+// Framer-motion configuration
+const Item = {
+  hidden: {
+    scale: 0,
+  },
+  show: {
+    scale: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+    },
+  },
+};
 
 const Card = (props) => {
   const { id, name, description, tags, demo, github } = props.data;
   return (
     <Box
       key={id}
-      initial={{ height: 0 }}
-      animate={{ height: "40vh" }}
-      transition={{ type: "tween", duration: 0.5 }}
-      whileHover={{ scale: 1.1 }}
+      variants={Item}
     >
       {/* Title */}
       <Title>
@@ -131,18 +141,19 @@ const Card = (props) => {
           })}
         </motion.div>
       </Tags>
+      {/* Footer */}
       <Footer>
-      <motion.div
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
         >
-        <Link to={{pathname: `${demo}`}} target="_blank">
-          Visit
-        </Link>
-        <Git to={{pathname: `${github}`}} target="_blank">
-          <Github width={30} height={30} />
-        </Git>
+          <Link to={{ pathname: `${demo}` }} target="_blank">
+            Visit
+          </Link>
+          <Git to={{ pathname: `${github}` }} target="_blank">
+            <Github width={30} height={30} />
+          </Git>
         </motion.div>
       </Footer>
     </Box>

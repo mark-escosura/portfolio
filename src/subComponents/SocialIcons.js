@@ -22,7 +22,7 @@ const Icons = styled.div`
   }
 `;
 
-const Line = styled.span`
+const Line = styled(motion.span)`
   width: 2px;
   height: 8rem;
   background-color: ${(props) =>
@@ -32,7 +32,11 @@ const Line = styled.span`
 const SocialIcons = (props) => {
   return (
     <Icons>
-      <motion.div whileHover={{ scale: 1.3 }}>
+      <motion.div
+        initial={{ transform: "scale(0)" }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: "spring", duration: 1, delay: 1 }}
+      >
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -45,7 +49,11 @@ const SocialIcons = (props) => {
           />
         </NavLink>
       </motion.div>
-      <motion.div whileHover={{ scale: 1.3 }}>
+      <motion.div
+        initial={{ transform: "scale(0)" }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: "spring", duration: 1, delay: 1.2 }}
+      >
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -58,7 +66,11 @@ const SocialIcons = (props) => {
           />
         </NavLink>
       </motion.div>
-      <motion.div whileHover={{ scale: 1.3 }}>
+      <motion.div
+        initial={{ transform: "scale(0)" }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: "spring", duration: 1, delay: 1.4 }}
+      >
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -71,7 +83,11 @@ const SocialIcons = (props) => {
           />
         </NavLink>
       </motion.div>
-      <motion.div whileHover={{ scale: 1.3 }}>
+      <motion.div
+        initial={{ transform: "scale(0)" }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: "spring", duration: 1, delay: 1.6 }}
+      >
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
@@ -85,7 +101,12 @@ const SocialIcons = (props) => {
         </NavLink>
       </motion.div>
 
-      <Line color={props.theme} />
+      <Line
+        color={props.theme}
+        initial={{ height: 0 }}
+        animate={{ height: "8rem" }}
+        transition={{ type: "spring", duration: 1, delay: 0.8 }}
+      />
     </Icons>
   );
 };

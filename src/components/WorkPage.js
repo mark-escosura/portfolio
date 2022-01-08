@@ -1,15 +1,20 @@
+// imports
 import React, { useRef, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
-import { Work } from "../data/WorkData.js";
-import { YinYang } from "./AllSvgs";
+import { motion } from "framer-motion";
 
+// data
+import { Work } from "../data/WorkData.js";
+
+// components
 import BigTitle from "../subComponents/BigTitle";
 import Card from "../subComponents/Card";
 import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
+import { YinYang } from "./AllSvgs";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -21,7 +26,7 @@ const Box = styled.div`
   cursor: pointer;
 `;
 
-const Main = styled.ul`
+const Main = styled(motion.ul)`
   position: fixed;
   top: 12rem;
   left: calc(10rem + 15vw);
@@ -40,6 +45,19 @@ width: 80px;
 height: 80px;
 z-index: 1;
 `
+
+// Framer-motion configuration
+
+const container = {
+  hidden: { opacity: 0},
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    }
+  }
+}
 
 const WorkPage = () => { 
   const ref = useRef(null)
@@ -67,7 +85,7 @@ const WorkPage = () => {
         <PowerButton theme="dark" />
         <ParticleComponent theme="dark" />
 
-        <Main ref={ref}>
+        <Main ref={ref} variants={container} initial="hidden" animate="show">
           {
           Work.map(work => {
               return <Card key={work.id} data={work}>Work Data</Card>;
