@@ -104,16 +104,13 @@ const Item = {
 const Card = (props) => {
   const { id, name, description, tags, demo, github } = props.data;
   return (
-    <Box
-      key={id}
-      variants={Item}
-    >
+    <Box key={id} variants={Item}>
       {/* Title */}
       <Title>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           {name}
         </motion.div>
@@ -123,7 +120,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           {description}
         </motion.div>
@@ -133,7 +130,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           {tags.map((t, id) => {
             return <Tag key={id}>#{t}</Tag>;
@@ -145,7 +142,7 @@ const Card = (props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <Link to={{ pathname: `${demo}` }} target="_blank">
             Visit
