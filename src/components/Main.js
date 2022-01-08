@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
@@ -7,6 +7,7 @@ import Intro from "./Intro";
 import LogoComponent from "../subComponents/LogoComponent";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
+import Loading from "../subComponents/Loading";
 import { YinYang } from "./AllSvgs";
 
 const MainContainer = styled.div`
@@ -54,7 +55,7 @@ const Contact = styled(NavLink)`
 const BLOG = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: calc(1rem + 2vw);
   transform: rotate(90deg) translate(-50%, -50%);
   text-decoration: none;
@@ -140,6 +141,7 @@ const Main = () => {
   const handleClick = () => setClick(!click);
 
   return (
+    <Suspense fallback={<Loading />}>
     <MainContainer>
       <DarkDiv click={click} />
       <Container>
@@ -248,6 +250,7 @@ const Main = () => {
       </Container>
       {click ? <Intro click={click} /> : null}
     </MainContainer>
+    </Suspense>
   );
 };
 
