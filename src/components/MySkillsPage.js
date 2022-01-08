@@ -1,12 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { LightTheme } from "./Themes";
-import { Design, Develope } from "./AllSvgs";
 
-import LogoComponent from "../subComponents/LogoComponent";
-import SocialIcons from "../subComponents/SocialIcons";
-import PowerButton from "../subComponents/PowerButton";
-import ParticleComponent from "../subComponents/ParticleComponent";
+// components 
+import { Design, Develope } from "./AllSvgs";
+import { LightTheme } from "./Themes";
+import Loading from "../subComponents/Loading";
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const ParticleComponent = lazy(() => import("../subComponents/ParticleComponent"))
+const PowerButton = lazy(() => import("../subComponents/PowerButton"));
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -77,6 +79,7 @@ const Description = styled.h2`
 const MySkillsPage = () => {
   return (
     <ThemeProvider theme={LightTheme}>
+      <Suspense fallback={<Loading />}>
       <Box>
         <LogoComponent theme="light" />
         <SocialIcons theme="light" />
@@ -123,6 +126,7 @@ const MySkillsPage = () => {
           </Description>
         </Main>
       </Box>
+      </Suspense>
     </ThemeProvider>
   );
 };

@@ -1,7 +1,6 @@
-// Home Button
-import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+
 // components
 import { PowerBtn } from "../components/AllSvgs";
 import { DarkTheme } from "../components/Themes";

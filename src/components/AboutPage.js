@@ -1,15 +1,17 @@
-import React from "react";
+import React, { lazy } from "react";
 import styled, { keyframes, ThemeProvider } from "styled-components";
-import { DarkTheme } from "./Themes";
-
-import LogoComponent from "../subComponents/LogoComponent";
-import SocialIcons from "../subComponents/SocialIcons";
-import PowerButton from "../subComponents/PowerButton";
-import ParticleComponent from "../subComponents/ParticleComponent";
-
-import caspar from "../assets/images/Caspar.png"
-import BigTitle from "../subComponents/BigTitle";
 import { motion } from "framer-motion";
+
+// assets
+import caspar from "../assets/images/Caspar.png"
+
+//components
+import { DarkTheme } from "./Themes";
+const BigTitle = lazy(() => import("../subComponents/BigTitle"));
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const ParticleComponent = lazy(() => import("../subComponents/ParticleComponent"))
+const PowerButton = lazy(() => import("../subComponents/PowerButton"));
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};

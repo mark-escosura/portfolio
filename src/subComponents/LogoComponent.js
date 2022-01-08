@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { LightTheme } from "../components/Themes";
 import { motion } from "framer-motion";

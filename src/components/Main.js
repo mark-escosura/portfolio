@@ -1,14 +1,16 @@
-import React, { useState, Suspense } from "react";
+import React, { lazy, useState, Suspense } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+
 // components
 import Intro from "./Intro";
-import LogoComponent from "../subComponents/LogoComponent";
-import PowerButton from "../subComponents/PowerButton";
-import SocialIcons from "../subComponents/SocialIcons";
 import Loading from "../subComponents/Loading";
 import { YinYang } from "./AllSvgs";
+
+const PowerButton = lazy(() => import("../subComponents/PowerButton"));
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};

@@ -1,5 +1,5 @@
 // imports
-import React, { useRef, useEffect, Suspense } from "react";
+import React, { useRef, useEffect, lazy, Suspense } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
 import { motion } from "framer-motion";
@@ -8,14 +8,14 @@ import { motion } from "framer-motion";
 import { Work } from "../data/WorkData.js";
 
 // components
-import BigTitle from "../subComponents/BigTitle";
+import { YinYang } from "./AllSvgs";
 import Card from "../subComponents/Card";
 import Loading from "../subComponents/Loading";
-import LogoComponent from "../subComponents/LogoComponent";
-import SocialIcons from "../subComponents/SocialIcons";
-import PowerButton from "../subComponents/PowerButton";
-import ParticleComponent from "../subComponents/ParticleComponent";
-import { YinYang } from "./AllSvgs";
+const BigTitle = lazy(() => import("../subComponents/BigTitle"));
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const ParticleComponent = lazy(() => import("../subComponents/ParticleComponent"))
+const PowerButton = lazy(() => import("../subComponents/PowerButton"));
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};

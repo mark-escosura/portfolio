@@ -1,19 +1,20 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import styled from "styled-components";
 
 // assets
 import img from "../assets/images/blog-background-img.png";
 
-// components
-import BigTitle from "../subComponents/BigTitle";
-import BlogComponent from "../components/BlogComponent";
-import LogoComponent from "../subComponents/LogoComponent";
-import PowerButton from "../subComponents/PowerButton";
-import SocialIcons from "../subComponents/SocialIcons";
-
 // data
 import { Blogs } from "../data/BlogData";
 import { motion } from "framer-motion";
+
+// components
+import BlogComponent from "../components/BlogComponent";
+import Loading from "../subComponents/Loading";
+const BigTitle = lazy(() => import("../subComponents/BigTitle"));
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const PowerButton = lazy(() => import("../subComponents/PowerButton"));
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
 
 const MainContainer = styled(motion.div)`
   background-image: url(${img});
@@ -61,6 +62,7 @@ const container = {
 
 const BlogPage = () => {
   return (
+    <Suspense fallback={<Loading />} >
     <MainContainer variants={container} initial='hidden' animate='show' exit={{ opacity: 0, transition:{duration: 0.5}}}>
       <Container>
         <LogoComponent theme="light" />
@@ -76,6 +78,7 @@ const BlogPage = () => {
         <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
+    </Suspense>
   );
 };
 
