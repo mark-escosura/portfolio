@@ -22,8 +22,8 @@ const MainContainer = styled(motion.div)`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  width: 100vw;
-  height: 110vh;
+  /* width: 100vw; */
+  /* height: 110vh; */
 `;
 
 const Container = styled.div`
@@ -62,22 +62,27 @@ const container = {
 
 const BlogPage = () => {
   return (
-    <Suspense fallback={<Loading />} >
-    <MainContainer variants={container} initial='hidden' animate='show' exit={{ opacity: 0, transition:{duration: 0.5}}}>
-      <Container>
-        <LogoComponent theme="light" />
-        <PowerButton />
-        <SocialIcons />
-        <Center>
-          <Grid>
-            {Blogs.map((blog) => {
-              return <BlogComponent key={blog.id} blog={blog} />;
-            })}
-          </Grid>
-        </Center>
-        <BigTitle text="BLOG" top="5rem" left="5rem" />
-      </Container>
-    </MainContainer>
+    <Suspense fallback={<Loading />}>
+      <MainContainer
+        variants={container}
+        initial="hidden"
+        animate="show"
+        exit={{ opacity: 0, transition: { duration: 0.5 } }}
+      >
+        <Container>
+          <LogoComponent theme="light" />
+          <PowerButton />
+          <SocialIcons />
+          <Center>
+            <Grid variants={container} initial="hidden" animate="show">
+              {Blogs.map((blog) => {
+                return <BlogComponent key={blog.id} blog={blog} />;
+              })}
+            </Grid>
+          </Center>
+          <BigTitle text="BLOG" top="5rem" left="5rem" />
+        </Container>
+      </MainContainer>
     </Suspense>
   );
 };
