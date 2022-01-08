@@ -1,5 +1,5 @@
 // imports
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, Suspense } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
 import { motion } from "framer-motion";
@@ -10,6 +10,7 @@ import { Work } from "../data/WorkData.js";
 // components
 import BigTitle from "../subComponents/BigTitle";
 import Card from "../subComponents/Card";
+import Loading from "../subComponents/Loading";
 import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
@@ -79,6 +80,7 @@ const WorkPage = () => {
 
   return (
     <ThemeProvider theme={DarkTheme}>
+      <Suspense fallback={<Loading />}>
       <Box>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
@@ -97,6 +99,7 @@ const WorkPage = () => {
         </Rotate>
         <BigTitle text="WORK" top="70%" right="35%" />
       </Box>
+      </Suspense>
     </ThemeProvider>
   );
 };

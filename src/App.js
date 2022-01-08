@@ -1,5 +1,6 @@
 // methods
 import { Route, Switch, useLocation } from "react-router";
+import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "styled-components";
 import { LightTheme } from "./components/Themes";
 import GlobalStyle from "./GlobalStyles";
@@ -11,7 +12,6 @@ import BlogPage from "./components/BlogPage";
 import Main from "./components/Main";
 import MySkillsPage from "./components/MySkillsPage";
 import WorkPage from "./components/WorkPage";
-import { AnimatePresence } from "framer-motion";
 
 function App() {
   const location = useLocation()
