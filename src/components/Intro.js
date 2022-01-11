@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Me from "../assets/images/avatar-full-body.png";
+import Me2 from "../assets/images/avatar-red-tie.png";
+import Me3 from "../assets/images/avatar-brown-sweater.png";
+import Me4 from "../assets/images/avatar-shoulder-bag.png";
 
 const Box = styled(motion.div)`
   position: absolute;
@@ -68,6 +71,22 @@ const Text = styled.div`
 `;
 
 const Intro = () => {
+
+  // array of images
+  const pics = [Me, Me2, Me3, Me4]
+
+  // handler
+  const getRandomPic = (arr) => {
+    // get random index value
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    //get random item
+    const item = arr[randomIndex];
+
+    return item;
+  }
+  // call function
+  const randomPic = getRandomPic(pics)
+
   return (
     <Box
     initial={{height: 0}}
@@ -87,7 +106,7 @@ const Intro = () => {
         animate={{opacity: 1}}
         transition={{ duration: 1, delay: 1.5 }}
         >
-        <img className="pic" src={Me} alt="Profile Pic" />
+        <img className="pic" src={randomPic} alt="Profile Pic" />
         </motion.div>
       </SubBox>
     </Box>
