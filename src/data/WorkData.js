@@ -8,26 +8,25 @@ export const Work = [
     tags: ['react', 'bootstrap', 'context-api'],
 
     demo: 'https://private-budget-app.vercel.app/',
-    github: 'https://github.com/mark-escosura/budget-app',
+    code: 'https://github.com/mark-escosura/budget-app',
   },
   {
     id: 2,
-    name: 'Responsive Navigation Menu (WIP)',
+    name: 'QR-Code Component',
     description:
       'A responsive navbar menu component in ReactJS with react-router functionalities. Built from scratch.',
-    tags: ['react', 'sass'],
+    tags: ['react', 'css'],
 
-    demo: '/',
-    github: '/',
+    demo: 'https://qr-code-ivory.vercel.app/',
+    code: 'https://github.com/mark-escosura/qr-code-component',
   },
   {
     id: 3,
-    name: 'Todo App(React + Redux)',
-    description:
-      'A todo-app built using Redux-framework and framer-motion for smooth and cool animations.',
-    tags: ['react', 'redux', 'framer-motion'],
+    name: 'Ooga Booga',
+    description: 'An application that shows different monsters.',
+    tags: ['react'],
 
-    demo: '/',
-    github: '/',
+    demo: 'https://ooga-booga.vercel.app/',
+    code: 'https://github.com/mark-escosura/ooga-booga',
   },
 ];
