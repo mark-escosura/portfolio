@@ -1,16 +1,16 @@
-import React, { lazy, useState, Suspense } from "react";
-import styled, { keyframes } from "styled-components";
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import React, { lazy, useState, Suspense } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 
 // components
-import Intro from "./Intro";
-import Loading from "../subComponents/Loading";
-import { YinYang } from "./AllSvgs";
+import Intro from './Intro';
+import Loading from '../subComponents/Loading';
+import { YinYang } from './AllSvgs';
 
-const PowerButton = lazy(() => import("../subComponents/PowerButton"));
-const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
-const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const PowerButton = lazy(() => import('../subComponents/PowerButton'));
+const SocialIcons = lazy(() => import('../subComponents/SocialIcons'));
+const LogoComponent = lazy(() => import('../subComponents/LogoComponent'));
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
@@ -25,7 +25,7 @@ const MainContainer = styled(motion.div)`
   h4,
   h5,
   h6 {
-    font-family: "Karla", sans-serif;
+    font-family: 'Karla', sans-serif;
     font-weight: 500;
   }
 `;
@@ -97,8 +97,8 @@ to {
 
 const Center = styled.button`
   position: absolute;
-  top: ${(props) => (props.click ? "85%" : "50%")};
-  left: ${(props) => (props.click ? "92%" : "50%")};
+  top: ${(props) => (props.click ? '85%' : '50%')};
+  left: ${(props) => (props.click ? '92%' : '50%')};
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -117,7 +117,7 @@ const Center = styled.button`
   }
 
   & > :last-child {
-    display: ${(props) => (props.click ? "none" : "inline-block")};
+    display: ${(props) => (props.click ? 'none' : 'inline-block')};
     padding-top: 1rem;
   }
 `;
@@ -128,8 +128,8 @@ const DarkDiv = styled.div`
   top: 0;
   bottom: 0;
   right: 50%;
-  width: ${(props) => (props.click ? "50%" : "0%")};
-  height: ${(props) => (props.click ? "100%" : "0%")};
+  width: ${(props) => (props.click ? '50%' : '0%')};
+  height: ${(props) => (props.click ? '100%' : '0%')};
   z-index: 1;
 
   transition: height 0.5s ease, width 1s ease 0.5s;
@@ -138,55 +138,55 @@ const DarkDiv = styled.div`
 const Main = () => {
   // state
   const [click, setClick] = useState(false);
-  const [path, setPath] = useState("");
+  const [path, setPath] = useState('');
   // handlers
   const handleClick = () => setClick(!click);
 
   // configs
   const moveY = {
-    y: "-100%",
+    y: '-100%',
   };
   const moveX = {
-    x: `${path === "work" ? "100%" : "-100%"}`,
+    x: `${path === 'work' ? '100%' : '-100%'}`,
   };
 
   return (
     <Suspense fallback={<Loading />}>
       <MainContainer
-        key="modal"
+        key='modal'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={path === "about" || path === "skills" ? moveY : moveX}
+        exit={path === 'about' || path === 'skills' ? moveY : moveX}
         transition={{ duration: 0.5 }}
       >
         <DarkDiv click={click} />
         <Container>
-          <LogoComponent theme={click ? "dark" : "light"} />
+          <LogoComponent theme={click ? 'dark' : 'light'} />
           <PowerButton />
-          <SocialIcons theme={click ? "dark" : "light"} />
+          <SocialIcons theme={click ? 'dark' : 'light'} />
           <Center click={click}>
             <YinYang
               onClick={handleClick}
               width={click ? 120 : 200}
               height={click ? 120 : 200}
-              fill="currentColor"
+              fill='currentColor'
             />
             <span>click here</span>
           </Center>
 
           <Contact
             click={+false}
-            target="_blank"
-            to={{ pathname: "mailto:escosuramarkse@gmail.com" }}
+            target='_blank'
+            to={{ pathname: 'mailto:escosuramarkse@gmail.com' }}
           >
             <motion.h2
               initial={{
                 y: -200,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               animate={{
                 y: 0,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -195,15 +195,15 @@ const Main = () => {
             </motion.h2>
           </Contact>
 
-          <BLOG click={+false} onClick={() => setPath("blog")} to="/blog">
+          <BLOG click={+false} onClick={() => setPath('blog')} to='/blog'>
             <motion.h2
               initial={{
                 y: -200,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               animate={{
                 y: 0,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -212,16 +212,16 @@ const Main = () => {
             </motion.h2>
           </BLOG>
 
-          <WORK to="/work" click={click}>
+          <WORK to='/work' click={click}>
             <motion.h2
-              onClick={() => setPath("work")}
+              onClick={() => setPath('work')}
               initial={{
                 y: -200,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               animate={{
                 y: 0,
-                transition: { type: "spring", duration: 1.5, delay: 1 },
+                transition: { type: 'spring', duration: 1.5, delay: 1 },
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -231,16 +231,16 @@ const Main = () => {
           </WORK>
 
           <BottomBar>
-            <ABOUT to="/about" click={click}>
+            <ABOUT to='/about' click={click}>
               <motion.h2
-                onClick={() => setPath("about")}
+                onClick={() => setPath('about')}
                 initial={{
                   y: 200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                  transition: { type: 'spring', duration: 1.5, delay: 1 },
                 }}
                 animate={{
                   y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                  transition: { type: 'spring', duration: 1.5, delay: 1 },
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -249,16 +249,16 @@ const Main = () => {
               </motion.h2>
             </ABOUT>
 
-            <SKILLS to="/skills">
+            <SKILLS to='/skills'>
               <motion.h2
-                onClick={() => setPath("skills")}
+                onClick={() => setPath('skills')}
                 initial={{
                   y: 200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                  transition: { type: 'spring', duration: 1.5, delay: 1 },
                 }}
                 animate={{
                   y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                  transition: { type: 'spring', duration: 1.5, delay: 1 },
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
