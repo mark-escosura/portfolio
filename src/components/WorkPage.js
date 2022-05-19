@@ -22,7 +22,7 @@ const SocialIcons = lazy(() => import('../subComponents/SocialIcons'));
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
 
-  height: 300vh;
+  height: 350vh;
   position: relative;
   display: flex;
   align-items: center;
